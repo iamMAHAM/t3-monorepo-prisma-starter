@@ -1,0 +1,33 @@
+{
+  "name": "@tutoring/utils",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@tutoring/eslint-config": "workspace:*",
+    "@tutoring/prettier-config": "workspace:*",
+    "@tutoring/tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@tutoring/prettier-config",
+  "dependencies": {
+    "uploadthing": "^6.13.2",
+    "sharp": "^0.33.4",
+    "blurhash": "^2.0.5",
+    "expo-server-sdk": "^3.10.0"
+  }
+}
