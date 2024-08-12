@@ -1,58 +1,54 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
-import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { ZodError } from "zod";
 
-const INTERNAL_SERVER_ERROR = "Quelque chose s'est mal passé";
+const INTERNAL_SERVER_ERROR = "Something went wrong";
 
-export default class TutoringError extends Error {
+export default class AcmeError extends Error {
   code: number;
   constructor(message: string, code?: number) {
     super(message);
-    this.name = "TutoringError";
+    this.name = "AcmeError";
     this.code = code ?? 502;
   }
 }
 
 export const errorHandler = (error: unknown) => {
   console.error("got an error in handler : ", error);
-  if (error instanceof TutoringError) {
-    return new NextResponse(error.message, { status: error.code ?? 502 });
+  if (error instanceof AcmeError) {
+    return new Response(error.message, { status: error.code ?? 502 });
   }
 
   if (error instanceof ZodError) {
-    return new NextResponse(error.errors[0]?.message, { status: 400 });
+    return new Response(error.errors[0]?.message, { status: 400 });
   }
 
   if (error instanceof Prisma.PrismaClientKnownRequestError) {
     if (error.code === "P2002") {
-      return new NextResponse(`le champ ${error.meta?.target} existe déjà`);
+      return new Response(`Field ${error.meta?.target} already exists`);
     } else if (error.code === "P2014") {
-      return new NextResponse(`ID invalide: ${error.meta?.target}`, {
+      return new Response(`ID invalide: ${error.meta?.target}`, {
         status: 400,
       });
     } else if (error.code === "P2003") {
-      return new NextResponse(
-        `Données d'entrée invalides: ${error.meta?.target}`,
-        { status: 400 },
-      );
+      return new Response(`Invalid entry: ${error.meta?.target}`, {
+        status: 400,
+      });
     } else {
-      return new NextResponse(
-        `Quelque chose s'est mal passé: ${error.message}`,
-        { status: 500 },
-      );
+      return new Response(`Something went wrong: ${error.message}`, {
+        status: 500,
+      });
     }
   }
 
-  return new NextResponse(INTERNAL_SERVER_ERROR, { status: 500 });
+  return new Response(INTERNAL_SERVER_ERROR, { status: 500 });
 };
 
 export const serverActionErrorHandler = (error: unknown) => {
   console.error("got an error in handler : ", error);
-  if (error instanceof TutoringError) {
+  if (error instanceof AcmeError) {
     return {
       errors: error.message,
       code: error.code ?? 502,

@@ -3,10 +3,10 @@ import type {
   NextAuthConfig,
   Session as NextAuthSession,
 } from "next-auth";
+import { db } from "@acme/db/client";
+import { Account, Session, User } from "@acme/db/schema";
 import { skipCSRFCheck } from "@auth/core";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import { db } from "@tutoring/db/client";
-import { Account, Session, User } from "@tutoring/db/schema";
 import Discord from "next-auth/providers/discord";
 
 import { env } from "../env";

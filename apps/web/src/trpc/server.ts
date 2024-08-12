@@ -1,9 +1,9 @@
-import type { AppRouter } from "@tutoring/api";
+import type { AppRouter } from "@acme/api";
 import { cache } from "react";
 import { headers } from "next/headers";
+import { createCaller, createTRPCContext } from "@acme/api";
+import { auth } from "@acme/auth";
 import { createHydrationHelpers } from "@trpc/react-query/rsc";
-import { createCaller, createTRPCContext } from "@tutoring/api";
-import { auth } from "@tutoring/auth";
 
 import { createQueryClient } from "./query-client";
 

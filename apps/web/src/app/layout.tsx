@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { cn } from "@acme/ui";
+import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
+import { Toaster } from "@acme/ui/toast";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-
-import { cn } from "@tutoring/ui";
-import { ThemeProvider, ThemeToggle } from "@tutoring/ui/theme";
-import { Toaster } from "@tutoring/ui/toast";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -18,13 +17,13 @@ export const metadata: Metadata = {
       ? "https://turbo.t3.gg"
       : "http://localhost:3000",
   ),
-  title: "Tutoring ",
+  title: "Acme ",
   description: "Plateforme de soutien scolaire",
   openGraph: {
-    title: "Tutoring",
+    title: "Acme",
     description: "Plateforme de soutien scolaire",
     url: "https://create-t3-turbo.vercel.app",
-    siteName: "Tutoring",
+    siteName: "Acme",
   },
   twitter: {
     card: "summary_large_image",

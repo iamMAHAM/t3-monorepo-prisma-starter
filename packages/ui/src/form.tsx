@@ -9,9 +9,9 @@ import type {
 } from "react-hook-form";
 import type { ZodType, ZodTypeDef } from "zod";
 import * as React from "react";
+import { cn } from "@acme/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@tutoring/ui";
 import {
   useForm as __useForm,
   Controller,

@@ -1,5 +1,5 @@
 {
-  "name": "@tutoring/db",
+  "name": "@acme/db",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -16,7 +16,6 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@prisma/client": "^5.18.0",
     "@t3-oss/env-core": "^0.10.1",
     "@vercel/postgres": "^0.9.0",
     "drizzle-orm": "^0.31.2",
@@ -24,9 +23,10 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@tutoring/eslint-config": "workspace:*",
-    "@tutoring/prettier-config": "workspace:*",
-    "@tutoring/tsconfig": "workspace:*",
+    "@prisma/client": "^5.18.0",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.2",
     "drizzle-kit": "^0.22.8",
     "eslint": "catalog:",
@@ -34,5 +34,5 @@
     "prisma": "^5.18.0",
     "typescript": "catalog:"
   },
-  "prettier": "@tutoring/prettier-config"
+  "prettier": "@acme/prettier-config"
 }

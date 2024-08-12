@@ -14,4 +14,5 @@ export const prisma =
         : ["error"],
   });
 
+// eslint-disable-next-line no-restricted-properties, @typescript-eslint/no-unsafe-assignment
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;

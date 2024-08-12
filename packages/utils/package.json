@@ -1,5 +1,5 @@
 {
-  "name": "@tutoring/utils",
+  "name": "@acme/utils",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -16,14 +16,14 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@tutoring/eslint-config": "workspace:*",
-    "@tutoring/prettier-config": "workspace:*",
-    "@tutoring/tsconfig": "workspace:*",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@tutoring/prettier-config",
+  "prettier": "@acme/prettier-config",
   "dependencies": {
     "uploadthing": "^6.13.2",
     "sharp": "^0.33.4",

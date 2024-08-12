@@ -1,4 +1,4 @@
-import type { AppRouter } from "@tutoring/api";
+import type { AppRouter } from "@acme/api";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, loggerLink } from "@trpc/client";
@@ -12,7 +12,7 @@ import { getToken } from "./session-store";
  * A set of typesafe hooks for consuming your API.
  */
 export const api = createTRPCReact<AppRouter>();
-export { type RouterInputs, type RouterOutputs } from "@tutoring/api";
+export { type RouterInputs, type RouterOutputs } from "@acme/api";
 
 /**
  * A wrapper for your app that provides the TRPC context.

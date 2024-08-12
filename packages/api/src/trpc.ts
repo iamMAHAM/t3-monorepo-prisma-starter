@@ -6,13 +6,12 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
+import type { Session } from "@acme/auth";
+import { auth, validateToken } from "@acme/auth";
+import { prisma } from "@acme/db";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
-
-import type { Session } from "@tutoring/auth";
-import { auth, validateToken } from "@tutoring/auth";
-import { prisma } from "@tutoring/db";
 
 /**
  * Isomorphic Session getter for API requests
